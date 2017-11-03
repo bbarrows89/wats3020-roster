@@ -1,32 +1,6 @@
-# WATS 3020 Roster Project
+# Roster Project
 
-In this project you will add Class objects to fill in the functionality of a
-simple course roster. This will require you to model objects for a `Person`,
-`Student`, and `Teacher` in addition to providing specific methods so the roster
-can function.
+A project to create a Class Roster. 
 
-The goal of this project is to become more familiar with how to create and
-extend Class objects, and how to make use of Class methods within your code.
+The project helped me become more familiar with creating and extending classes, as well as using class methods.
 
-## Basic Requirements
-
-In order to successfully complete this project, you must:
-
-* Complete all of the TODO requirements in the `js/main.js` file.
-* Create the needed Classes to fill in functionality on the roster: `Person`, `Student`, and `Teacher`.
-* Create the needed methods on the `Student` Class to handle calculating attendance.
-* Create the needed methods on the `Course` Class to handle roster management.
-* Provide helpful comments throughout your code (and remove the TODO comments when done).
-* Write stylistically consistent, syntactically corrent JS.
-
-## Stretch Goals
-
-If you are able to easily fulfill the requirements above, try completing these
-stretch goals.
-
-* Add a way to remove a Teacher from the course (put a `removeTeacher()` method on the `Course` class).
-* Add a way to remove a Student from the course.
-* Create `markPresent()` and `markAbsent()` methods on the `Student` Class and use those from within the `Course` Class' `markAttendance()` method.
-* Build better error-checking in the `Person` constructor to make sure people have put in an email address with an `@` symbol.
-* Enhance the display of attendance information to show the number of present and absent days.
-* **ADVANCED:** Instead of using `prompt()` commands, use an HTML form(s) to collect information from the user.
