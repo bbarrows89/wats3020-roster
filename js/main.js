@@ -31,17 +31,13 @@ calculateAttendance(){
     }
   } 
 
-// TODO: Create another class that extends the `Person` class called `Teacher`.
-// The `Teacher` class should add a property called `this.honorific` (supplied
-// when an instance of `Teacher` is created).
-
 class Teacher extends Person {
   constructor(name, email, honorific){
-
+    super(name, email);
+    this.honorific = honorific;
   }
 }
 
-// TODO: Set up our Course class so we can run the whole roster from it.
 class Course {
     constructor(courseCode, courseTitle, courseDescription){
         this.code = courseCode;
