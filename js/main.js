@@ -59,7 +59,7 @@ class Course {
     updateRoster(this);
   }
 
-  addTeacher(){
+  setTeacher(){
     let name = prompt('Teacher Full Name: ');
     let email = prompt('Teacher Email: ');
     let honorific = prompt('Honorific? (Dr., Mr., Mrs., Prof., etc): ')
