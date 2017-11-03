@@ -66,50 +66,40 @@ class Course {
     this.teacher = new Teacher(name, email, honorific);
     updateRoster(this);
   }
-}
-/////////////////////////////////////////    
-// mark student attendance //////////////
-/////////////////////////////////////////
-    markAttendance(username, status='present'){
-      let student = this.findStudent(username);
-      if (status === 'present'){
-        student.attendance.push(1);
-      } else {
-        student.attendance.push(0);
-      }
-      updateRoster(this);
+ 
+// mark student attendance 
+  markAttendance(username, status='present') {
+    let student = this.findStudent(username);
+    if (status === 'present'){
+      student.attendance.push(1);
+    } else {
+      student.attendance.push(0);
     }
-/////////////////////////////////////////
-// find student by username /////////////
-/////////////////////////////////////////
-    findStudent(username){
-        // This method takes in a username and looks for that username
-        // on student objects contained in the `this.students` Array.
-        
-        let foundStudent = this.students.find(function(student, index){
-            return student.username == username;
-        });
-        return foundStudent;
-    }
+    updateRoster(this);
+  }
+
+// find student by username 
+  findStudent(username){
+      // This method takes in a username and looks for that username
+      // on student objects contained in the `this.students` Array. 
+      let foundStudent = this.students.find(function(student, index) {
+          return student.username == username;
+      });
+      return foundStudent;
+  }
 }
 
 /////////////////////////////////////////
 // Prompt User for Course Info  /////////
 /////////////////////////////////////////
-
 let courseCode = prompt('What is the course code?');
-
 let courseTitle = prompt('What is the course title?')
-
 let courseDescription = prompt('Please provide a brief description of the course.')
 
 // Create a new `Course` object instance called `myCourse` 
-
 let myCourse = new Course(courseCode, courseTitle, courseDescription);
 
-/////////////////////////////////////////
 //////// Main Script ////////////////////
-/////////////////////////////////////////
 
 let rosterTitle = document.querySelector('#course-title');
 rosterTitle.innerHTML = `${myCourse.code}: ${myCourse.title}`;
