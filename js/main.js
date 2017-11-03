@@ -39,7 +39,7 @@ class Teacher extends Person {
 
 /////////////////////////////////////////
 // Create class for course objects. /////
-// include methods to:              /////
+// includes methods to:              /////
 //   add teacher or add student     /////
 /////////////////////////////////////////
 class Course {
