@@ -15,20 +15,20 @@ class Student extends Person {
     super(name, email);
     this.attendance = [];
   }
+  // method to calculate student attendance
+  calculateAttendance() {
+    if (this.attendance.length > 0) {
+      let counter = 0;
+      for (let tally of this.attendance) {
+        counter = counter + tally;
+      }
+      let attendancePercentage = counter / this.attendance.length * 100;
+      return '${attendancePercentage}%';
+    } else {
+      return "0%";
+    }
+  }
 }
-
-calculateAttendance(){
-  if (this.attendance.length > 0) {
-    let counter = 0;
-    for (let tally of this.attendance) {
-      counter = counter + tally;
-    }
-    let attendancePercentage = counter / this.attendance.length * 100;
-    return '${attendancePercentage}%';
-  } else {
-    return "0%";
-    }
-  } 
 
 class Teacher extends Person {
   constructor(name, email, honorific){
@@ -43,33 +43,30 @@ class Teacher extends Person {
 //   add teacher or add student     /////
 /////////////////////////////////////////
 class Course {
-    constructor(courseCode, courseTitle, courseDescription){
-        this.code = courseCode;
-        this.title = courseTitle;
-        this.description = courseDescription;
-        this.teacher = null;
-        this.students = [];
-    }
+  constructor(courseCode, courseTitle, courseDescription){
+    this.code = courseCode;
+    this.title = courseTitle;
+    this.description = courseDescription;
+    this.teacher = null;
+    this.students = [];
+  }
 
-   
-    addStudent(){
-      let name = prompt('Full Name of Student:');
-      let email = prompt('Student Email: ');
-      let newStudent = new Student(name, email);
-      
-      this.students.push(newStudent);
-      updateRoster(this);
-    }
+  addStudent(){
+    let name = prompt('Full Name of Student:');
+    let email = prompt('Student Email: ');
+    let newStudent = new Student(name, email);
+    this.students.push(newStudent);
+    updateRoster(this);
+  }
 
-    addTeacher(){
-      let name = prompt('Teacher Full Name: ');
-      let email = prompt('Teacher Email: ');
-      let honorific = prompt('Honorific? (Dr., Mr., Mrs., Prof., etc): ')
-
-      this.teacher = new Teacher(name, email, honorific);
-      updateRoster(this);
-    }
-
+  addTeacher(){
+    let name = prompt('Teacher Full Name: ');
+    let email = prompt('Teacher Email: ');
+    let honorific = prompt('Honorific? (Dr., Mr., Mrs., Prof., etc): ')
+    this.teacher = new Teacher(name, email, honorific);
+    updateRoster(this);
+  }
+}
 /////////////////////////////////////////    
 // mark student attendance //////////////
 /////////////////////////////////////////
