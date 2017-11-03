@@ -23,7 +23,7 @@ class Student extends Person {
         counter = counter + tally;
       }
       let attendancePercentage = counter / this.attendance.length * 100;
-      return '${attendancePercentage}%';
+      return `${attendancePercentage}%`;
     } else {
       return "0%";
     }
