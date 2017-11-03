@@ -1,16 +1,12 @@
 /* JS for WATS 3020 Roster Project */
 
-
-// TODO: Create a base class called `Person` that takes the parameters `name`
-// and `email` and makes those available as attributes. The `constructor()`
-// method should also break the username from before the `@` symbol in the
-// `email` value and use that to store on a `this.username` property.
-
-class Person{
-  constructor(name, email){
+class Person {
+  constructor(name, email) {
     this.name = name;
     this.email = email;
-
+    // splitting email at @ puts everything to the left in an array.
+    // [0] is to grab that first array item, which is what was split.
+    this.username = email.split('@')[0];
   }
 }
 
@@ -22,6 +18,12 @@ class Person{
 // `constructor()` method from the `Person` class.)
 //
 
+class Student extends Person {
+  constructor(name, email) {
+    super(name, email);
+    this.attendance = [];
+  }
+}
 
 // TODO: Create another method on the `Student` class called `calculateAttendance`.
 // This method should give a percentage of how many days the student was present.
