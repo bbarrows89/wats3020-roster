@@ -47,25 +47,24 @@ class Course {
         this.students = [];
     }
 
-    /////////////////////////////////////////
-    // TODO: ADD the `addStudent()` method /////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
-    //
-    // Create a method called `addStudent()` that prompts the user for
-    // information required to create a new `Student` object (`name`, `email`)
-    // and does so, then adds the student to the `this.students` Array. Be sure
-    // to update the roster display by calling `updateRoster()`. You will need
-    // to reference the Class instance using `this` as a parameter for
-    // `updateRoster()`, so it might look like this: `updateRoster(this)`.
-
+   
     addStudent(){
       let name = prompt('Full Name of Student:');
       let email = prompt('Student Email: ');
       let newStudent = new Student(name, email);
+      
       this.students.push(newStudent);
       updateRoster(this);
     }
 
+    addTeacher(){
+      let name = prompt('Teacher Full Name: ');
+      let email = prompt('Teacher Email: ');
+      let honorific = prompt('Honorific? (Dr., Mr., Mrs., Prof., etc): ')
+
+      this.teacher = new Teacher(name, email, honorific);
+      updateRoster(this);
+    }
 
     /////////////////////////////////////////
     // TODO: ADD the `setTeacher()` method /////////////////////////////////////
