@@ -18,14 +18,14 @@ class Student extends Person {
   }
 }
 
-calculateAttendance() {
+calculateAttendance(){
   if (this.attendance.length > 0) {
     let counter = 0;
     for (let tally of this.attendance) {
       counter = counter + tally;
     }
     let attendancePercentage = counter / this.attendance.length * 100;
-    return ${attendancePercentage};
+    return '${attendancePercentage}%';
   } else {
     return "0%";
     }
