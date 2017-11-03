@@ -58,6 +58,14 @@ class Course {
     // to reference the Class instance using `this` as a parameter for
     // `updateRoster()`, so it might look like this: `updateRoster(this)`.
 
+    addStudent(){
+      let name = prompt('Full Name of Student:');
+      let email = prompt('Student Email: ');
+      let newStudent = new Student(name, email);
+      this.students.push(newStudent);
+      updateRoster(this);
+    }
+
 
     /////////////////////////////////////////
     // TODO: ADD the `setTeacher()` method /////////////////////////////////////
