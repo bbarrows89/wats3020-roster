@@ -1,5 +1,4 @@
-/* JS for WATS 3020 Roster Project */
-
+// define base class of Person
 class Person {
   constructor(name, email) {
     this.name = name;
@@ -38,6 +37,11 @@ class Teacher extends Person {
   }
 }
 
+/////////////////////////////////////////
+// Create class for course objects. /////
+// include methods to:              /////
+//   add teacher or add student     /////
+/////////////////////////////////////////
 class Course {
     constructor(courseCode, courseTitle, courseDescription){
         this.code = courseCode;
@@ -66,44 +70,25 @@ class Course {
       updateRoster(this);
     }
 
-    /////////////////////////////////////////
-    // TODO: ADD the `setTeacher()` method /////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
-    //
-    // Create a method called `setTeacher()` that prompts the user for the
-    // information required to create a `Teacher` object (`name`, `email`) and
-    // does so, then sets the `this.teacher` property equal to the new `Teacher` object.
-
-
-    /////////////////////////////////////////
-    // TODO: ADD `markAttendance()` method /////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
-    //
-    // TODO: Create a method to mark a student's attendance called `markAttendance()`.
-    // This method should accept a parameter called `username` containing the
-    // `username` that will match the `username` property on the `Student` object.
-
-    // TODO: The FIRST step to create a functioning `markAttendance()` method is
-    // to retreive the `Student` object out of the `this.students` Array. You
-    // can use the `this.findStudent()` method (provided below) to accomplish
-    // that goal. Note that you will also have to handle two cases: The default
-    // behavior should be to mark the student present. The alternate behavior
-    // should be to mark the student absent.
-
-    // TODO: Now that we have retrieved the specific `Student` object we want
-    // to work with, we can use the appropriate method on the `Student` object
-    // to record the attendance.
-
-
-
-    //////////////////////////////////////////////
-    // Methods provided for you -- DO NOT EDIT /////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
-
+/////////////////////////////////////////    
+// mark student attendance //////////////
+/////////////////////////////////////////
+    markAttendance(username, status='present'){
+      let student = this.findStudent(username);
+      if (status === 'present'){
+        student.attendance.push(1);
+      } else {
+        student.attendance.push(0);
+      }
+      updateRoster(this);
+    }
+/////////////////////////////////////////
+// find student by username /////////////
+/////////////////////////////////////////
     findStudent(username){
-        // This method provided for convenience. It takes in a username and looks
-        // for that username on student objects contained in the `this.students`
-        // Array.
+        // This method takes in a username and looks for that username
+        // on student objects contained in the `this.students` Array.
+        
         let foundStudent = this.students.find(function(student, index){
             return student.username == username;
         });
@@ -112,8 +97,8 @@ class Course {
 }
 
 /////////////////////////////////////////
-// Prompt User for Course Info  //////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+// Prompt User for Course Info  /////////
+/////////////////////////////////////////
 
 let courseCode = prompt('What is the course code?');
 
@@ -125,9 +110,9 @@ let courseDescription = prompt('Please provide a brief description of the course
 
 let myCourse = new Course(courseCode, courseTitle, courseDescription);
 
-///////////////////////////////////////////////////
-//////// Main Script /////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////
+//////// Main Script ////////////////////
+/////////////////////////////////////////
 
 let rosterTitle = document.querySelector('#course-title');
 rosterTitle.innerHTML = `${myCourse.code}: ${myCourse.title}`;
