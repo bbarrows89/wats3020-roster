@@ -104,30 +104,21 @@ class Course {
 }
 
 /////////////////////////////////////////
-// TODO: Prompt User for Course Info  //////////////////////////////////////////
+// Prompt User for Course Info  //////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-//
-// Prompt the user for information to create the Course. In order to create a
-// `Course` object, you must gather the following information:
-//
-// TODO: Prompt the user for the `courseCode` (the number/code of the course, like "WATS 3000").
 
 let courseCode = prompt('What is the course code?');
 
-// TODO: Prompt the user for the `courseTitle` (the name of the course, like "Introduction to JavaScript").
 let courseTitle = prompt('What is the course title?')
 
 let courseDescription = prompt('Please provide a brief description of the course.')
-// Create a new `Course` object instance called `myCourse` using the three data points just collected from the user.
-// TODO: Add in the values for the information supplied by the user above.
+
+// Create a new `Course` object instance called `myCourse` 
+
 let myCourse = new Course(courseCode, courseTitle, courseDescription);
 
 ///////////////////////////////////////////////////
 //////// Main Script /////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-// This script runs the page. You should only edit it if you are attempting a //
-// stretch goal. Otherwise, this script calls the functions that you have     //
-// created above.                                                             //
 ////////////////////////////////////////////////////////////////////////////////
 
 let rosterTitle = document.querySelector('#course-title');
